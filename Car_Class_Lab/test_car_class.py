@@ -1,6 +1,6 @@
 import unittest
 
-from car_class_lab import Car
+from car_class import Car
 
 
 class CarClassTest(unittest.TestCase):
