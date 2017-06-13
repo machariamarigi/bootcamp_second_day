@@ -26,3 +26,10 @@ class Developer(Employee):
 
 class Manager(Employee):
     """A class for manager employees"""
+
+    def __init__(self, first, last, pay, employees=None):
+        super().__init__(first, last, pay)
+        if employees is None:
+            self.employees = []
+        else:
+            self.employees = employees
