@@ -45,12 +45,21 @@ class ManagerTestCase(unittest.TestCase):
     """Class to Test Manager Class"""
     def setUp(self):
         self.manager = Manager('Test', 'Name', 100)
+        self.employee = Employee('Test1', 'Name1', 100)
 
     def test_manager_instance(self):
         self.assertEqual(
             self.manager.employees,
             [],
             'Class not instantiating properly')
+
+    def test_add_employee(self):
+        initial_employees = self.manager.employees
+        self.manager.add_employee(self.employee)
+        final_employees = self.manager.employees
+        difference = len(final_employees) - len(initial_employees)
+        self.assertEqual(
+            difference, 1, 'Something wrong with the add_employee method')
 
 
 if __name__ == "__main__":
