@@ -22,3 +22,7 @@ class Developer(Employee):
     def __init__(self, firstname, lastname, pay, language):
         super().__init__(firstname, lastname, pay)
         self.language = language
+
+
+class Manager(Employee):
+    """A class for manager employees"""
