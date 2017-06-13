@@ -33,6 +33,13 @@ class DeveloperTestCase(unittest.TestCase):
             'Python',
             'Class not instantiating properly')
 
+    def test_inheriance(self):
+        initial_pay = self.developer.pay
+        self.developer.pay_rise()
+        final_pay = self.developer.pay
+        self.assertEqual(
+            final_pay, 105, 'Something wrong with the pay_rise method')
+
 
 if __name__ == "__main__":
     unittest.main()
