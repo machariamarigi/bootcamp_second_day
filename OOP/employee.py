@@ -15,6 +15,11 @@ class Employee(object):
     def pay_rise(self):
         self.pay = self.pay * self.raise_amount
 
+    def __repr__(self):
+        return "Employee('{}', '{}', {})".format(self.firstname,
+                                                 self.lastname,
+                                                 self.pay)
+
 
 class Developer(Employee):
     """A class for developer employees"""
@@ -33,3 +38,7 @@ class Manager(Employee):
             self.employees = []
         else:
             self.employees = employees
+
+    def add_employee(self, employee):
+        if employee not in self.employees:
+            self.employees.append(employee)

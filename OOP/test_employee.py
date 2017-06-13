@@ -56,10 +56,9 @@ class ManagerTestCase(unittest.TestCase):
     def test_add_employee(self):
         initial_employees = self.manager.employees
         self.manager.add_employee(self.employee)
-        final_employees = self.manager.employees
-        difference = len(final_employees) - len(initial_employees)
+        employee_added = 2 - len(initial_employees)
         self.assertEqual(
-            difference, 1, 'Something wrong with the add_employee method')
+            employee_added, 1, 'Something wrong with the add_employee method')
 
 
 if __name__ == "__main__":
