@@ -14,3 +14,7 @@ class Employee(object):
 
     def pay_rise(self):
         self.pay = self.pay * self.raise_amount
+
+
+class Developer(Employee):
+    """A class for developer employees"""
