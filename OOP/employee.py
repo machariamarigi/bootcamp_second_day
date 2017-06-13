@@ -18,3 +18,7 @@ class Employee(object):
 
 class Developer(Employee):
     """A class for developer employees"""
+
+    def __init__(self, firstname, lastname, pay, language):
+        super().__init__(firstname, lastname, pay)
+        self.language = language
