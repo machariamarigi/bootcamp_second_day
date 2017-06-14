@@ -15,6 +15,9 @@ class Employee(object):
     def pay_rise(self):
         self.pay = self.pay * self.raise_amount
 
+    def company_email(self):
+        pass
+
     def __repr__(self):
         return "Employee('{}', '{}', {})".format(self.firstname,
                                                  self.lastname,

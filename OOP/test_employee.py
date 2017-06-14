@@ -21,6 +21,13 @@ class EmployeeTestCases(unittest.TestCase):
         self.assertEqual(
             final_pay, 105, 'Something wrong with the pay_rise method')
 
+    def test_company_email(self):
+        self.assertEqual(
+            self.employee.email(),
+            'test.name@company.com',
+            'Something wrong with the company_email method'
+        )
+
 
 class DeveloperTestCase(unittest.TestCase):
     """Class to Test Developer Class"""
