@@ -23,7 +23,7 @@ class EmployeeTestCases(unittest.TestCase):
 
     def test_company_email(self):
         self.assertEqual(
-            self.employee.email(),
+            self.employee.company_email(),
             'test.name@company.com',
             'Something wrong with the company_email method'
         )
