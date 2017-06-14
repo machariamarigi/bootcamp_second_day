@@ -47,6 +47,13 @@ class DeveloperTestCase(unittest.TestCase):
         self.assertEqual(
             final_pay, 105, 'Something wrong with the pay_rise method')
 
+    def test_company_email(self):
+        self.assertEqual(
+            self.developer.company_email(),
+            'test.name-dev@company.com',
+            'Something wrong with the company_email method'
+        )
+
 
 class ManagerTestCase(unittest.TestCase):
     """Class to Test Manager Class"""
@@ -66,6 +73,13 @@ class ManagerTestCase(unittest.TestCase):
         employee_added = 2 - len(initial_employees)
         self.assertEqual(
             employee_added, 1, 'Something wrong with the add_employee method')
+
+    def test_company_email(self):
+        self.assertEqual(
+            self.manager.company_email(),
+            'test.name-manager@company.com',
+            'Something wrong with the company_email method'
+        )
 
 
 if __name__ == "__main__":

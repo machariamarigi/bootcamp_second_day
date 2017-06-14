@@ -32,6 +32,10 @@ class Developer(Employee):
         super().__init__(firstname, lastname, pay)
         self.language = language
 
+    def company_email(self):
+        return "{0}.{1}-dev@company.com".format(
+            self.firstname, self.lastname).lower()
+
 
 class Manager(Employee):
     """A class for manager employees"""
@@ -46,3 +50,7 @@ class Manager(Employee):
     def add_employee(self, employee):
         if employee not in self.employees:
             self.employees.append(employee)
+
+    def company_email(self):
+        return "{0}.{1}-manager@company.com".format(
+            self.firstname, self.lastname).lower()
