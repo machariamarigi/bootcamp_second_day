@@ -3,25 +3,6 @@ import unittest
 from employee import Employee, Developer, Manager
 
 
-class EmployeeTestCases(unittest.TestCase):
-    """Class to test Employee class"""
-    def setUp(self):
-        self.employee = Employee('Test', 'Name', 100)
-
-    def test_employee_instance(self):
-        self.assertEqual(
-            self.employee.name,
-            'Test Name',
-            'Class not instantiating properly')
-
-    def test_employee_pay_rise(self):
-        initial_pay = self.employee.pay
-        self.employee.pay_rise()
-        final_pay = self.employee.pay
-        self.assertEqual(
-            final_pay, 105, 'Something wrong with the pay_rise method')
-
-
 class DeveloperTestCase(unittest.TestCase):
     """Class to Test Developer Class"""
     def setUp(self):
@@ -33,19 +14,23 @@ class DeveloperTestCase(unittest.TestCase):
             'Python',
             'Class not instantiating properly')
 
-    def test_inheriance(self):
-        initial_pay = self.developer.pay
-        self.developer.pay_rise()
-        final_pay = self.developer.pay
+    def test_company_email(self):
         self.assertEqual(
-            final_pay, 105, 'Something wrong with the pay_rise method')
+            self.developer.company_email(),
+            'test.name-dev@company.com',
+            'Something wrong with the company_email method'
+        )
+
+    def test_encapsulation(self):
+        with self.assertRaises(AttributeError):
+            self.developer.__change_language('C++')
 
 
 class ManagerTestCase(unittest.TestCase):
     """Class to Test Manager Class"""
     def setUp(self):
         self.manager = Manager('Test', 'Name', 100)
-        self.employee = Employee('Test1', 'Name1', 100)
+        self.employee = Developer('Test1', 'Name1', 100, 'Java')
 
     def test_manager_instance(self):
         self.assertEqual(
@@ -59,6 +44,13 @@ class ManagerTestCase(unittest.TestCase):
         employee_added = 2 - len(initial_employees)
         self.assertEqual(
             employee_added, 1, 'Something wrong with the add_employee method')
+
+    def test_company_email(self):
+        self.assertEqual(
+            self.manager.company_email(),
+            'test.name-manager@company.com',
+            'Something wrong with the company_email method'
+        )
 
 
 if __name__ == "__main__":
