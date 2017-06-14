@@ -4,44 +4,45 @@
 class Employee(object):
     """Base Class for an Employee"""
 
-    raise_amount = 1.05
-
-    def __init__(self, firstname, lastname, pay):
-        self.firstname = firstname
-        self.lastname = lastname
-        self.name = "{0} {1}".format(firstname, lastname)
-        self.pay = pay
-
     def pay_rise(self):
-        self.pay = self.pay * self.raise_amount
+        pass
 
     def company_email(self):
-        return "{0}.{1}@company.com".format(
-            self.firstname, self.lastname).lower()
-
-    def __repr__(self):
-        return "Employee('{}', '{}', {})".format(self.firstname,
-                                                 self.lastname,
-                                                 self.pay)
+        pass
 
 
 class Developer(Employee):
     """A class for developer employees"""
 
+    raise_amount = 1.05
+
     def __init__(self, firstname, lastname, pay, language):
-        super().__init__(firstname, lastname, pay)
+        self.firstname = firstname
+        self.lastname = lastname
+        self.name = "{0} {1}".format(firstname, lastname)
+        self.pay = pay
         self.language = language
 
     def company_email(self):
         return "{0}.{1}-dev@company.com".format(
             self.firstname, self.lastname).lower()
 
+    # Encapsulated method
+    def __change_language(self, language):
+        self.language = language
+        return self.language
+
 
 class Manager(Employee):
     """A class for manager employees"""
 
-    def __init__(self, first, last, pay, employees=None):
-        super().__init__(first, last, pay)
+    raise_amount = 1.10
+
+    def __init__(self, firstname, lastname, pay, employees=None):
+        self.firstname = firstname
+        self.lastname = lastname
+        self.name = "{0} {1}".format(firstname, lastname)
+        self.pay = pay
         if employees is None:
             self.employees = []
         else:
@@ -56,6 +57,7 @@ class Manager(Employee):
             self.firstname, self.lastname).lower()
 
 
+# a fun way to see polymorphism in action
 def polymorphism():
     employees = [
         Manager('Poly', 'Manger', 100),
