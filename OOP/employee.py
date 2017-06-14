@@ -54,3 +54,13 @@ class Manager(Employee):
     def company_email(self):
         return "{0}.{1}-manager@company.com".format(
             self.firstname, self.lastname).lower()
+
+
+def polymorphism():
+    employees = [
+        Manager('Poly', 'Manger', 100),
+        Developer('Poly', 'Dev', 100, 'Javascript')]
+
+    for employee in employees:
+        print('{0} : {1}'.format(employee.name, employee.company_email()))
+
