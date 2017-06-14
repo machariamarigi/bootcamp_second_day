@@ -1,4 +1,4 @@
-""" Python OOP"""
+""" Python OOP Real world modeling A componies employment system"""
 
 
 class Employee(object):
